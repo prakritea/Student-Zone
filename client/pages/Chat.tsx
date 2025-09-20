@@ -10,16 +10,50 @@ export default function Chat() {
   const [input, setInput] = useState("");
   const listRef = useRef<HTMLDivElement>(null);
 
-  const onSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    const text = input.trim();
-    if (!text) return;
-    const userMsg: Msg = { id: Math.random().toString(36).slice(2), role: "user", content: text };
-    const botMsg: Msg = { id: Math.random().toString(36).slice(2), role: "assistant", content: "(Mock) Here's a helpful answer with steps and tips." };
-    setMessages((m) => [...m, userMsg, botMsg]);
-    setInput("");
-    setTimeout(()=> listRef.current?.scrollTo({ top: 999999, behavior: "smooth" }), 50);
+  const onSubmit = async (e: FormEvent) => {
+  e.preventDefault();
+  const text = input.trim();
+  if (!text) return;
+
+  const userMsg: Msg = {
+    id: Math.random().toString(36).slice(2),
+    role: "user",
+    content: text,
   };
+
+  setMessages((prev) => [...prev, userMsg]);
+  setInput("");
+
+  try {
+    const res = await fetch("http://127.0.0.1:8000/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: text }),
+    });
+
+    const data = await res.json();
+
+    const botMsg: Msg = {
+      id: Math.random().toString(36).slice(2),
+      role: "assistant",
+      content: data.reply || "Sorry, I couldn't process that.",
+    };
+
+    setMessages((prev) => [...prev, botMsg]);
+  } catch (err) {
+    const errorMsg: Msg = {
+      id: Math.random().toString(36).slice(2),
+      role: "assistant",
+      content: "⚠️ Failed to get response. Please try again.",
+    };
+    setMessages((prev) => [...prev, errorMsg]);
+  }
+
+  setTimeout(() => {
+    listRef.current?.scrollTo({ top: 999999, behavior: "smooth" });
+  }, 50);
+};
+
 
   return (
     <>

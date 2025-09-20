@@ -1,0 +1,145 @@
+PS C:\Users\Prakriti\Desktop\Projects\StudenZone> tree /f /a
+Folder PATH listing for volume OS
+Volume serial number is 2607-AD3D
+C:.
+|   .dockerignore
+|   .env
+|   .gitignore
+|   .npmrc
+|   .prettierrc
+|   AGENTS.md
+|   components.json
+|   index.html
+|   netlify.toml
+|   package.json
+|   pnpm-lock.yaml
+|   postcss.config.js
+|   tailwind.config.ts
+|   tsconfig.json
+|   vite.config.server.ts
+|   vite.config.ts
+|
++---.builder
+|   \---rules
+|           deploy-app.mdc
+|           organize-ui.mdc
+|
+/backend
+|-- main.py           <-- FastAPI entry point
+|-- routers/
+|   |-- youtube.py    <-- YouTube summarization endpoint
+|   |-- chat.py       <-- AI chatbot endpoint
+|   |-- pdf.py        <-- PDF summarization endpoint
+|   |-- flashcards.py <-- Flashcard generation endpoint
+|-- services/
+|   |-- summarizer.py <-- Core logic for summaries
+|   |-- chatbot.py    <-- OpenAI or LLM-based logic
+|-- models/
+|   |-- schemas.py    <-- Pydantic schemas for request/response
+|-- utils/
+|   |-- helper.py     <-- Utility functions
+
++---client
+|   |   App.tsx
+|   |   global.css
+|   |   vite-env.d.ts
+|   |
+|   +---components
+|   |   |   BackButton.tsx
+|   |   |   Footer.tsx
+|   |   |   Header.tsx
+|   |   |   Layout.tsx
+|   |   |   ThemeToggle.tsx
+|   |   |
+|   |   \---ui
+|   |           accordion.tsx
+|   |           alert-dialog.tsx
+|   |           alert.tsx
+|   |           aspect-ratio.tsx
+|   |           avatar.tsx
+|   |           badge.tsx
+|   |           breadcrumb.tsx
+|   |           button.tsx
+|   |           calendar.tsx
+|   |           card.tsx
+|   |           carousel.tsx
+|   |           chart.tsx
+|   |           checkbox.tsx
+|   |           collapsible.tsx
+|   |           command.tsx
+|   |           context-menu.tsx
+|   |           dialog.tsx
+|   |           drawer.tsx
+|   |           dropdown-menu.tsx
+|   |           form.tsx
+|   |           hover-card.tsx
+|   |           input-otp.tsx
+|   |           input.tsx
+|   |           label.tsx
+|   |           menubar.tsx
+|   |           navigation-menu.tsx
+|   |           pagination.tsx
+|   |           popover.tsx
+|   |           progress.tsx
+|   |           radio-group.tsx
+|   |           resizable.tsx
+|   |           scroll-area.tsx
+|   |           select.tsx
+|   |           separator.tsx
+|   |           sheet.tsx
+|   |           sidebar.tsx
+|   |           skeleton.tsx
+|   |           slider.tsx
+|   |           sonner.tsx
+|   |           switch.tsx
+|   |           table.tsx
+|   |           tabs.tsx
+|   |           textarea.tsx
+|   |           toast.tsx
+|   |           toaster.tsx
+|   |           toggle-group.tsx
+|   |           toggle.tsx
+|   |           tooltip.tsx
+|   |           use-toast.ts
+|   |
+|   +---hooks
+|   |       use-mobile.tsx
+|   |       use-toast.ts
+|   |
+|   +---lib
+|   |       utils.spec.ts
+|   |       utils.ts
+|   |
+|   \---pages
+|           Chat.tsx
+|           Dashboard.tsx
+|           Flashcards.tsx
+|           Index.tsx
+|           Library.tsx
+|           Notes.tsx
+|           NotFound.tsx
+|           PDF.tsx
+|           Planner.tsx
+|           PPT.tsx
+|           YouTube.tsx
+|
++---netlify
+|   \---functions
+|           api.ts
+|
++---public
+|       favicon.ico
+|       placeholder.svg
+|       robots.txt
+|
++---server
+|   |   index.ts
+|   |   node-build.ts
+|   |
+|   \---routes
+|           demo.ts
+|
+\---shared
+        api.ts
+
+PS C:\Users\Prakriti\Desktop\Projects\StudenZone> 

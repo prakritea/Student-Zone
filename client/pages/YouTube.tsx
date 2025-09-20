@@ -23,12 +23,34 @@ export default function YouTube() {
   const videoId = useMemo(() => extractYouTubeId(url), [url]);
   const watchUrl = videoId ? `https://www.youtube.com/watch?v=${videoId}` : url || "https://www.youtube.com";
 
-  const handleSummarize = () => {
-    // UI-only mock
-    setSummary(
-      "This video covers core ideas with timestamps, examples, and a concise 5‑bullet overview. It introduces the topic, demonstrates key steps, provides tips, and concludes with action items."
-    );
-  };
+
+
+  const handleSummarize = async () => {
+  if (!url) return;
+
+  try {
+    const response = await fetch("http://127.0.0.1:8000/summarize", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      setSummary(data.summary);
+    } else {
+      setSummary("Failed to generate summary. Please check the video URL or try again.");
+      console.error("API error:", data.detail);
+    }
+  } catch (err) {
+    console.error("Request failed:", err);
+    setSummary("An error occurred while connecting to the summarization service.");
+  }
+};
+
+
+
 
   return (
     <>
