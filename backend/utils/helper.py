@@ -1,4 +1,4 @@
-from fasapi import FastAPI
+from fastapi import FastAPI
 from routers import youtube,chat, pdf, flashcards
 
 app = FastAPI()
