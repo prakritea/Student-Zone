@@ -1,8 +1,8 @@
 # backend/routers/flashcards.py
 
 from fastapi import APIRouter, HTTPException
-from models.schemas import FlashcardRequest, FlashcardResponse
-from services.flashcards_logic import generate_flashcards
+from backend.models.schemas import FlashcardRequest, FlashcardResponse
+from backend.services.flashcards_logic import generate_flashcards
 
 router = APIRouter()
 

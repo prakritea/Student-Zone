@@ -1,8 +1,8 @@
 # backend/routers/pdf.py
 
 from fastapi import APIRouter, HTTPException, UploadFile, File
-from models.schemas import PDFSummaryResponse
-from services.pdf_logic import summarize_pdf_file
+from backend.models.schemas import PDFSummaryResponse
+from backend.services.pdf_logic import summarize_pdf_file
 
 router = APIRouter()
 

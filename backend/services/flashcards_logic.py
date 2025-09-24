@@ -2,7 +2,7 @@
 
 import os
 from typing import List
-from models.schemas import FlashcardRequest, Card
+from backend.models.schemas import FlashcardRequest, Card
 import openai
 
 # Ensure you have OPENAI_API_KEY in your environment

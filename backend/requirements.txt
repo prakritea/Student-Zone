@@ -5,3 +5,6 @@ transformers
 fastapi
 uvicorn[standard]
 pydantic
+PyPDF2
+openai
+python-pptx
